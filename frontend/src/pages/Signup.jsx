@@ -1,10 +1,11 @@
 import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import {signup} from "../redux/authRedux/action"
-import {useDispatch} from "react-redux"
+import {useDispatch,useSelector} from "react-redux"
 import {useNavigate} from "react-router-dom"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loading from "../components/Loading";
 
 
 const Signup = () => {
@@ -14,7 +15,7 @@ const Signup = () => {
   const [password, setPassword] = useState("")
   const dispatch=useDispatch()
   const navigate=useNavigate()
-
+  const loading=useSelector((state)=>state.AuthReducer.loading)
   const handleSignup = () => {
     const payload={
       name:name,
@@ -72,11 +73,11 @@ const Signup = () => {
   };
 
   return (
-    <div
+   loading ? <Loading/> : <div
       style={{
         width: "30%",
         margin: "auto",
-        marginTop: "80px",
+        marginTop: "40px",
         padding: "13px 25px 30px 25px",
         boxShadow: " rgba(0, 0, 0, 0.35) 0px 5px 25px",
         borderRadius: "8px",

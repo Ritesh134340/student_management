@@ -1,11 +1,13 @@
 import React from 'react'
 import * as types from "./actionTypes"
-const myToken=localStorage.getItem("studentToken")
+const data=JSON.parse(localStorage.getItem("studentData")) || {}
+const authToken=data?.token || ""
 
 const initialState={
     loading:false,
     error:false,
-    token:myToken || ""
+    token:authToken,
+    userData:data
 }
 
 const reducer = (state=initialState,action) => {
@@ -13,8 +15,9 @@ const reducer = (state=initialState,action) => {
      switch (type) {
         case types.LOGIN_REQUEST : return {...state,loading:true,error:false}
         case types.LOGIN_SUCCESS : 
-        localStorage.setItem(JSON.stringify("studentData",payload.studentData))
-        return {...state,loading:false,error:false}
+        localStorage.setItem("studentData",JSON.stringify(payload.studentData))
+        return {...state,loading:false,error:false,token:payload.studentData.token,userData:payload.studentData}
+
         case types.LOGIN_FAILURE : return {...state,loading:false,error:true}
 
 
@@ -22,6 +25,15 @@ const reducer = (state=initialState,action) => {
         case types.SIGNUP_SUCCESS : return {...state,loading:false,error:false}
         case types.SIGNUP_FAILURE : return {...state,loading:false,error:true}
 
+
+        case types.LOGOUT_REQUEST :
+            localStorage.removeItem("studentData")
+             return {...state,token:""}
+
+
+       case types.GET_PROFILE_REQUEST : return {...state,loading:true,error:false}
+       case types.GET_PROFILE_SUCCESS : return {...state,loading:false,error:false}
+       case types.GET_PROFILE_FAILURE : return {...state,loading:false,error:true}
 
         default: return state;
      }

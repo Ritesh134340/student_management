@@ -7,6 +7,7 @@ const cors = require("cors");
 const PORT = process.env.PORT || 8000;
 
 const authRouter=require("./routes/auth.route")
+const appRouter=require("./routes/app.route")
 
 app.use(cors());
 app.use(express.json());
@@ -19,6 +20,7 @@ app.get("/api",(req,res)=>{
 })
 
 app.use("/api/auth",authRouter)
+app.use("/api/app",appRouter)
 
 app.listen(PORT, async() => {
     try{

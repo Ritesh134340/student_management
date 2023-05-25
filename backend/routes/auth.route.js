@@ -6,8 +6,43 @@ const jwt=require("jsonwebtoken")
 
 
 
-auth.post("/login",(req,res)=>{
+auth.post("/login",async(req,res)=>{
+  try{
+     const {email,password} = req.body;
+   
+     const document=await Student.findOne({email:email})
+     if(!document){
+        return res.status(403).send({mesg:"User not found,please signup !"})
+     }
+     else{
+       
+        bcrypt.compare(password, document.password, async function(err, result) {
+            
+            if(!result){
+                
+                res.status(404).send({mesg:"Invalid credentials!"})
+                return;
+            }
+          
+               const  token =jwt.sign({ email:document.email,id:document._id}, 'ritesh123');
 
+                const payload={
+                    id:document._id,
+                    name:document.name,
+                    email:document.email,
+                    token:token,
+                    className:document.className,
+                    rollNo:document.rollNo
+                }
+
+                res.status(200).send({mesg:"Login successful!",studentData:payload})
+        });
+     }
+  }
+  catch(err){
+    console.log("Error from login route",err)
+    res.status(500).send({mesg:"Internal server error !"})
+  }
    
 })
 
@@ -46,6 +81,19 @@ auth.post("/signup",async(req,res)=>{
     }
     catch(err){
         console.log("Error from signup route",err)
+        res.status(500).send({mesg:"Internal server error !"})
+    }
+})
+
+auth.get("/profile/:id",async(req,res)=>{
+    try{
+      const userId=(req.params.id)
+      const user=await Student.findOne({_id:userId})
+     
+      res.status(200).send(user)
+    }
+    catch(err){
+        console.log("Error from get profile route",err)
         res.status(500).send({mesg:"Internal server error !"})
     }
 })
