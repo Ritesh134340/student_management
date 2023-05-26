@@ -1,9 +1,11 @@
-import React from 'react'
+
 import * as types from "./actionTypes"
 const initialState={
    loading:false,
    error:false,
-   homeworkData:[]
+   paymentData:[],
+   homeworkData:{}
+
 
 }
 
@@ -19,6 +21,17 @@ const reducer = (state=initialState,action) => {
          case types.ADD_TIME_TABLE_REQUEST : return {...state,loading:true,error:false}
          case types.ADD_TIME_TABLE_SUCCESS : return {...state,loading:false,error:false}
          case types.ADD_TIME_TABLE_FAILURE : return {...state,loading:false,error:true}
+
+
+
+         case types.PAYMENT_HISTORY_REQUEST : return {...state,loading:true,error:false}
+         case types.PAYMENT_HISTORY_SUCCESS : return {...state,loading:false,error:false,paymentData:payload.feeHistory}
+         case types.PAYMENT_HISTORY_FAILURE : return {...state,loading:false,error:true}
+
+
+         case types.HOMEWORK_DATA_REQUEST : return {...state,loading:true,error:false}
+         case types.HOMEWORK_DATA_SUCCESS : return {...state,loading:false,error:false,homeworkData:payload}
+         case types.HOMEWORK_DATA_FAILURE : return {...state,loading:false,error:true}
 
 
 

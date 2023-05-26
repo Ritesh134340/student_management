@@ -136,12 +136,12 @@ const Signup = () => {
         <div>
           <select style={{padding:"5px 10px",marginBottom:"8px",borderRadius:"5px"}} name="standard" id="standard" onChange={(e)=>setStd(e.target.value)}>
             <option value="#">Select</option>
-            <option value="I">First</option>
-            <option value="II">Second</option>
-            <option value="III">Third</option>
-            <option value="IV">Forth</option>
-            <option value="V">Fifth</option>
-            <option value="VI">Sixth</option>
+            <option value="I">I</option>
+            <option value="II">II</option>
+            <option value="III">III</option>
+            <option value="IV">IV</option>
+            <option value="V">V</option>
+            <option value="VI">VI</option>
           </select>
         </div>
         <div style={{ marginBottom: "15px" }}>

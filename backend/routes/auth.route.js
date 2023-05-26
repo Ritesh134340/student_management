@@ -4,7 +4,33 @@ const Student=require("../models/students.model")
 const bcrypt = require('bcrypt');
 const jwt=require("jsonwebtoken")
 
-
+const paymentData=[
+    {
+     month:"May",
+     status:"Paid",
+     amount:1200
+    },
+    {
+        month:"June",
+        status:"Due",
+        amount:1200
+       },
+       {
+        month:"July",
+        status:"Due",
+        amount:1200
+       },
+       {
+        month:"August",
+        status:"Due",
+        amount:1200
+       },
+       {
+        month:"September",
+        status:"Due",
+        amount:1200
+       }
+]
 
 auth.post("/login",async(req,res)=>{
   try{
@@ -24,7 +50,7 @@ auth.post("/login",async(req,res)=>{
                 return;
             }
           
-               const  token =jwt.sign({ email:document.email,id:document._id}, 'ritesh123');
+               const  token =jwt.sign({ email:document.email,id:document._id}, process.env.SECRET_KEY);
 
                 const payload={
                     id:document._id,
@@ -67,8 +93,8 @@ auth.post("/signup",async(req,res)=>{
                     email:email,
                     password:hash,
                     rollNo:rollNo,
-                    className:std  
-    
+                    className:std,  
+                    feehistory:paymentData
                 }
                 const newStudent=new Student(payload)
                 await newStudent.save()

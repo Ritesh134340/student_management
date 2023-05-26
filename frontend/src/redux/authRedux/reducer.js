@@ -7,7 +7,8 @@ const initialState={
     loading:false,
     error:false,
     token:authToken,
-    userData:data
+    userData:data,
+    profile:{}
 }
 
 const reducer = (state=initialState,action) => {
@@ -32,7 +33,7 @@ const reducer = (state=initialState,action) => {
 
 
        case types.GET_PROFILE_REQUEST : return {...state,loading:true,error:false}
-       case types.GET_PROFILE_SUCCESS : return {...state,loading:false,error:false}
+       case types.GET_PROFILE_SUCCESS : return {...state,loading:false,error:false,profile:payload}
        case types.GET_PROFILE_FAILURE : return {...state,loading:false,error:true}
 
         default: return state;
