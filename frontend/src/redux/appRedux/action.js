@@ -50,3 +50,17 @@ export const getHomeworkData=(payload)=>(dispatch)=>{
        return  dispatch({type:types.HOMEWORK_DATA_FAILURE,status:err.response.status,mesg:err.response.data.mesg})
     })
 }
+
+
+export const getTimetableData=(payload)=>(dispatch)=>{
+  
+    dispatch({type:types.GET_TIMETABLE_DATA_REQUEST});
+    return axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/app/timetable/data`,payload)
+    .then((res)=>{
+       
+        return dispatch({type:types.GET_TIMETABLE_DATA_SUCCESS,payload:res.data,status:res.status})
+      })
+    .catch((err)=>{
+        return  dispatch({type:types.GET_TIMETABLE_DATA_FAILURE,status:err.response.status,mesg:err.response.data.mesg})
+     })
+}

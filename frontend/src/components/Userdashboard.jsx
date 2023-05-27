@@ -6,7 +6,7 @@ const Userdashboard = () => {
     const dispatch=useDispatch()
     const token = useSelector((state) => state.AuthReducer.token);
     const homeworkData=useSelector((state)=>state.AppReducer.homeworkData)
-    const profile=useSelector((state)=>state.AuthReducer.profile)
+    const profile=useSelector((state)=>state.AuthReducer.userData)
    
 
     useEffect(()=>{

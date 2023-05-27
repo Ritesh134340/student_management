@@ -4,15 +4,15 @@ const initialState={
    loading:false,
    error:false,
    paymentData:[],
-   homeworkData:{}
-
-
+   homeworkData:{},
+   timetable:{}
 }
 
 const reducer = (state=initialState,action) => {
     const {type,payload} = action;
+
      switch (type) {
-       
+        
          case types.ADD_HOME_WORK_REQUEST : return {...state,loading:true,error:false}
          case types.ADD_HOME_WORK_SUCCESS : return {...state,loading:false,error:false}
          case types.ADD_HOME_WORK_FAILURE : return {...state,loading:false,error:true}
@@ -32,6 +32,19 @@ const reducer = (state=initialState,action) => {
          case types.HOMEWORK_DATA_REQUEST : return {...state,loading:true,error:false}
          case types.HOMEWORK_DATA_SUCCESS : return {...state,loading:false,error:false,homeworkData:payload}
          case types.HOMEWORK_DATA_FAILURE : return {...state,loading:false,error:true}
+
+
+
+
+         case types.GET_TIMETABLE_DATA_REQUEST :
+      
+         return {...state,loading:true,error:false}
+         case types.GET_TIMETABLE_DATA_SUCCESS :
+        
+         return {...state,loading:false,error:false,timetable:payload.timetable}
+         case types.GET_TIMETABLE_DATA_FAILURE :
+         
+         return {...state,loading:false,error:true}
 
 
 
