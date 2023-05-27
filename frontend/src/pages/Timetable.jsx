@@ -52,7 +52,7 @@ const Timetable = () => {
       <option value="Saturday">SAT</option>
    
     </select>
-    <table style={{ margin: 'auto', width: '40%', borderCollapse: 'collapse', borderRadius: '8px' }}>
+    <table style={{ margin: 'auto', width: '60%', borderCollapse: 'collapse', borderRadius: '8px' }}>
   <thead>
     <tr>
       {change &&
@@ -83,7 +83,7 @@ const Timetable = () => {
               style={{
                 backgroundColor: index % 2 === 0 ? '#f9f9f9' : '#ffffff',
                 textAlign: 'center',
-                padding: '10px',
+                padding: '15px',
               }}
             >
               {ele.time}
@@ -100,7 +100,7 @@ const Timetable = () => {
               style={{
                 backgroundColor: index % 2 === 0 ? '#f9f9f9' : '#ffffff',
                 textAlign: 'center',
-                padding: '10px',
+                padding: '15px',
               }}
             >
               {ele.ins}

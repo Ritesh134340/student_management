@@ -95,7 +95,7 @@ const Login = () => {
           />
         </div>
         <div style={{marginBottom:"15px"}}>
-        <Link to="/signup" style={{color:"gray",textDecoration:"none"}}>Don't have an account? Sign up</Link>
+        <Link to="/signup" style={{color:"gray",textDecoration:"none",userSelect:"none"}}>Don't have an account? Sign up</Link>
         </div>
        
         <button style={{userSelect:"none"}} type="button" className="btn btn-dark" onClick={handleLogin}>

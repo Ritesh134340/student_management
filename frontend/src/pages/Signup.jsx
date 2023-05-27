@@ -145,7 +145,7 @@ const Signup = () => {
           </select>
         </div>
         <div style={{ marginBottom: "15px" }}>
-          <Link to="/login" style={{ color: "gray", textDecoration: "none" }}>
+          <Link to="/login" style={{ color: "gray", textDecoration: "none",userSelect:"none" }}>
             Already have an account? Sign in
           </Link>
         </div>

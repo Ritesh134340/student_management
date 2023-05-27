@@ -32,7 +32,7 @@ const Navbar = () => {
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarText">
-      <ul className="navbar-nav mr-auto">
+      <ul className="navbar-nav mr-auto" style={{userSelect:"none"}}>
         <li className="nav-item active">
           <Link to="/" className="nav-link">Dashboard<span className="sr-only">(current)</span></Link>
         </li>
