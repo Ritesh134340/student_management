@@ -1,20 +1,23 @@
 const mongoose=require("mongoose");
 
-const detailsSchema=new mongoose.Schema({
-     day:{type:String},
-     subject:{type:String},
-     startTime:{type:String},
-     endTime:{type:String},
-     instructor:{type:String},
+const subjectSchema=new mongoose.Schema({
+    subjectName:String,
+    time:String,
+    ins:String
+
 })
 
-const timeSchema=new mongoose.Schema({
-   className:{type:String,required:true},
-   details:[detailsSchema]
-},{timestamps:true})
+const indvDaySchema=new mongoose.Schema({
+   dayName:String,
+   subject:[subjectSchema]
+})
 
+const timetableSchema=new mongoose.Schema({
+    className:String,
+    days:[indvDaySchema]
+})
 
-const Timetable=mongoose.model("timetable",timeSchema)
+const Timetable=mongoose.model("timetable",timetableSchema)
 
 module.exports=Timetable
 

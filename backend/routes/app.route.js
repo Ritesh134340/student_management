@@ -34,7 +34,11 @@ app.post("/add/homework",async(req,res)=>{
 
 app.post("/add/timetable",async(req,res)=>{
     try{
-     console.log(req.body)
+     const {className}=req.body;
+    
+         await Timetable.findOneAndUpdate({className:className},req.body)
+         res.status(201).send({mesg:"Time table added successfully!"})
+        
     }
     catch(err){
         console.log("Error from add timetable route",err)
@@ -65,6 +69,22 @@ app.get("/payments/history", authenticate,async(req,res)=>{
     }
     catch(err){
         console.log("Error from get homework data route",err)
+        res.status(500).send({mesg:"Internal server error !"}) 
+    }
+ })
+
+
+
+ app.get("/timetable/data",authenticate,async(req,res)=>{
+    try{
+        const user=await Student.findOne({_id:req.body.id});
+        const className=user.className;
+        const timetable=await Timetable.findOne({className:className});
+      
+        res.status(200).send({timetable:timetable})
+    }
+    catch(err){
+        console.log("Error from get timetable data route",err)
         res.status(500).send({mesg:"Internal server error !"}) 
     }
  })
