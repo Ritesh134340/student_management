@@ -8,9 +8,9 @@ BACKEND: https://student-management-wifa.onrender.com
 
 This is a small demo of student management system where new student can login or signup and explore different features.
 
-# Screen Short :
+# Screenshots :
 
-![Screenshot (791)](https://user-images.githubusercontent.com/105931703/236862348-9505c382-0120-44c7-b0ec-b2097795202a.png)
+![Screenshot (791)](https://github.com/Ritesh134340/blogify/assets/105931703/ec648f64-7a21-4e3f-9b23-e482769312e3)
 
 
 
