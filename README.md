@@ -1,7 +1,17 @@
 # STUDENT MANAGEMENT SYSTEM
 
+## Deployed Link -
+
+FRONTEND : https://stdmang.netlify.app/
+
+BACKEND: https://student-management-wifa.onrender.com
 
 This is a small demo of student management system where new student can login or signup and explore different features.
+
+# Screen Short :
+
+![Screenshot (791)]([https://user-images.githubusercontent.com/105931703/236862348-9505c382-0120-44c7-b0ec-b2097795202a.png](https://github.com/Ritesh134340/student_management/assets/105931703/768894ae-bbe4-432f-8658-432172448f33))
+
 
 
 
