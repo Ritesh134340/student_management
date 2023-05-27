@@ -10,7 +10,7 @@ This is a small demo of student management system where new student can login or
 
 # Screen Short :
 
-![Screenshot (791)]([https://user-images.githubusercontent.com/105931703/236862348-9505c382-0120-44c7-b0ec-b2097795202a.png])
+![Screenshot (791)](https://user-images.githubusercontent.com/105931703/236862348-9505c382-0120-44c7-b0ec-b2097795202a.png)
 
 
 
